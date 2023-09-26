@@ -1,13 +1,14 @@
 <div class="container border rounded" >
     <h2>Students</h2>
     <ul>
-        <div  *ngFor="let student of students" class="card" style="width: 18rem;" >
-            <div class="card-body">
-                <h5 class="card-title">{{ student.name +' '+student.last_name}}</h5>
-                <h6 class="card-subtitle mb-2 text-body-secondary">{{student.course}}</h6>
+        <div  *ngFor="let student of students" class="card border-0" style="width: 18rem;"  >
+            <div class="card-body border rounded" [ngClass]="student.active?'border-success':'border-danger'">
+                <h5 class="card-title">{{ (student.name +' '+student.last_name) | uppercase}}</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">Active: {{student.active}}</h6>
+                <p class="card-text">Course: {{student.course}}</p>
                 <p class="card-text">City: {{student.city}}</p>
                 <p class="card-text">Age: {{student.age}}</p>
-                <p class="card-text">Course: {{student.course}}</p>
+                <button class="btn btn-primary" (click)="student.active=!student.active">Switch Status</button>
             </div>
         </div>
     </ul>
