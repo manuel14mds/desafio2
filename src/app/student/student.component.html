@@ -1,8 +1,15 @@
-<h2>student</h2>
-<ul>
-    <li *ngFor="let student of students">
-        <h3>Fullname: {{ student.name +' '+student.last_name}}</h3>
-        
-    </li>
-</ul>
+<div class="container border rounded" >
+    <h2>Students</h2>
+    <ul>
+        <div  *ngFor="let student of students" class="card" style="width: 18rem;" >
+            <div class="card-body">
+                <h5 class="card-title">{{ student.name +' '+student.last_name}}</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">{{student.course}}</h6>
+                <p class="card-text">City: {{student.city}}</p>
+                <p class="card-text">Age: {{student.age}}</p>
+                <p class="card-text">Course: {{student.course}}</p>
+            </div>
+        </div>
+    </ul>
+</div>
 
